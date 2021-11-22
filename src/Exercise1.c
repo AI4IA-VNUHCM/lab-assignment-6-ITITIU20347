@@ -5,8 +5,13 @@
 | Output: one thousand two hundred thirty four   |
 |________________________________________________|
 */
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
-int thsand,hdred,ty,teen;
+void Ex1(int n){
+	//Your codes here
+	int thsand,hdred,ty,teen;
 	if (n > 9999) printf("TRY AGAIN");
 	else
 	 {
@@ -124,4 +129,14 @@ int thsand,hdred,ty,teen;
 			break;
 		}	
 	}
+}
+
+
+int main(int argc, char *argv[]) {
+	//testing variable, applying it to your algorithm for auto-evaluating
+	int testcase = atoi(argv[1]);
+	
+	Ex1(testcase);
+	
+	return 0;
 }
