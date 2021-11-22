@@ -14,7 +14,22 @@ Ex:
 #include <string.h>
 
 void Ex4(char *str){
-	//Your codes here
+	int i=0,j;
+    int n = strlen(str);
+    for(i=0;i<n;i++)
+     if(str[i]==' ')
+      {
+        j=i;
+           while(j<n-1)
+           {
+            str[j] = str[j+1];
+            j++;
+           }
+        n--;
+        i--;
+      }
+      str[n]='\0';
+    printf(" %s ",str);
 	
 }
 
