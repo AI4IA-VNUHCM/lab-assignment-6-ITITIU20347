@@ -6,52 +6,122 @@
 |________________________________________________|
 */
 
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
+int thsand,hdred,ty,teen;
+	if (n > 9999) printf("TRY AGAIN");
+	else
+	 {
+	if (n >= 1000) {
+		thsand = n/1000;
+		Ex1(thsand);
+		printf(" thousand ");
+		}
+		 else thsand = 0;
 
-int main()
-{
-    char input[100] = "";
-    char word[20] = "";
-    char longest[20] = "";
-    char shortest[20] = "";
+	if (n >= 100) {
+		hdred = (n-thsand*1000)/100;
+		Ex1(hdred);
+		printf (" hundred ");
+		} 
+		else hdred = 0;
 
-    int wordindex = 0;
-    printf ("Input a string: ");
-    fgets(input, sizeof(input), stdin);
+	
+	if (n >= 10) {
+		ty = (n-thsand*1000-hdred*100)/10;
+		if ((n-thsand*1000-hdred*100) >= 20 || ty == 0) {
+		switch(ty) {
+		case 9: 
+			printf("ninty ");
+			break;
+		case 8: 
+			printf("eighty ");
+			break;
+		case 7: 
+			printf("seventy ");
+			break;
+		case 6: 
+			printf("sixty ");
+			break;
+		case 5: 
+			printf("fifty ");
+			break;
+		case 4: 
+			printf("four ");
+			break;
+		case 3: 
+			printf("thirty ");
+			break;
+		case 2:
+			printf("twenty ");
+			break;
+		}
+		teen = n-1000*thsand-100*hdred-ty*10;
+		Ex1(teen);
 
-    for (int inputindex = 0; inputindex < strlen(input); inputindex++){
-        while (inputindex < strlen(input)&&
-                !isspace(input[inputindex])&&
-                isalnum(input[inputindex])) {
-                    word[wordindex++]=input[inputindex++];
-                }
-                if (wordindex != 0)
-                {
-                    word[wordindex] = '\0';
-
-                    if (strlen(longest) == 0)
-                    {
-                        strcpy(longest, word);
-                    }
-                    if (strlen(shortest) == 0)
-                    {
-                        strcpy(shortest, word);
-                    }
-                    if (strlen(word) > strlen(longest))
-                    {
-                        strcpy(longest, word);
-                    }
-                    if (strlen(word) < strlen(shortest))
-                    {
-                        strcpy(shortest, word);
-                    }
-                    wordindex = 0;
-                }
-    }
-    printf ("Longest word: '%s'", longest);
-    printf ("\nShortest word: '%s'", shortest);
-
-    return 0;
+		} else if (ty== 1) {
+			ty = (n-thsand*1000-hdred*100);
+			switch(ty) {
+				case 10:
+					printf("ten");
+					break;
+				case 11:
+					printf("eleven");
+					break;
+				case 12:
+					printf("twelve");
+					break;
+				case 13:
+					printf("thirteen");
+					break;
+				case 14:
+					printf("fourteen");
+					break;
+				case 15:
+					printf("fifteen ");
+					break;
+				case 16:
+					printf("sixteen");
+					break;
+				case 17:
+					printf("seventeen");
+					break;
+				case 18:
+					printf("eighteen");
+					break;
+				case 19:
+					printf("ninteen");
+					break;
+			}
+		}
+	}
+	
+	switch(n) {
+		case 9: 
+			printf("nine");
+			break;
+		case 8: 
+			printf("eight");
+			break;
+		case 7: 
+			printf("seven");
+			break;
+		case 6: 
+			printf("six");
+			break;
+		case 5: 
+			printf("five");
+			break;
+		case 4: 
+			printf("four");
+			break;
+		case 3: 
+			printf("three");
+			break;
+		case 2:
+			printf("two");
+			break;
+		case 1: 
+			printf("one");
+			break;
+		}	
+	}
 }
